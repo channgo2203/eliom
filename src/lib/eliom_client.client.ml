@@ -472,6 +472,7 @@ let change_url_string ?(replace = false) uri =
          if !Eliom_common.is_client_app then Js.null else
          Js.Opt.return (Js.string uri))
     end;
+    Eliom_request_info.set_current_path uri;
     Eliommod_dom.touch_base ();
   end else begin
     current_pseudo_fragment := url_fragment_prefix_with_sharp^uri;
